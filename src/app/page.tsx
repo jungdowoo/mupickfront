@@ -16,7 +16,7 @@ type ChatMessage = {
 export default function Home() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
-  const [messages, setMessages] = useState<any[]>([])
+  const [messages, setMessages] = useState<ChatMessage[]>([])
   const chatEndRef = useRef<HTMLDivElement | null>(null)
   const [enteredChat, setEnteredChat] = useState(false)
 
