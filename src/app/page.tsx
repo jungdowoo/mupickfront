@@ -3,6 +3,16 @@
 
 import { useState, useRef, useEffect } from 'react'
 
+type ChatMessage = {
+  role: 'user' | 'assistant'
+  content: string
+  track?: {
+    title: string
+    artist: string
+    videoId: string
+  }
+}
+
 export default function Home() {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
