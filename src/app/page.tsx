@@ -38,13 +38,13 @@ export default function Home() {
     setLoading(true)
 
     try {
-      const cleanedMessages = newMessages.map((msg) =>
-        msg.role === 'gpt' ? { ...msg, role: 'assistant' } : msg
-      )
+      // const cleanedMessages = newMessages.map((msg) =>
+      //   msg.role === 'gpt' ? { ...msg, role: 'assistant' } : msg
+      // )
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: cleanedMessages }),
+        body: JSON.stringify({ messages: newMessages }),
       })
       const data = await res.json()
 
