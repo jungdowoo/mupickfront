@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useRef, useEffect } from 'react'
@@ -31,7 +30,7 @@ export default function Home() {
   const handleSubmit = async () => {
     if (!input.trim()) return
 
-    const userMessage = { role: 'user', content: input }
+    const userMessage: ChatMessage = { role: 'user', content: input }
     const newMessages = [...messages, userMessage]
 
     setMessages(newMessages)
@@ -50,7 +49,7 @@ export default function Home() {
       const data = await res.json()
 
       if (data.track?.title && data.track?.artist && data.track?.videoId) {
-        const gptMessage = {
+        const gptMessage: ChatMessage = {
           role: 'assistant',
           content: `${data.reply}🎵 ${data.track.title} - ${data.track.artist}`,
           track: data.track,
@@ -85,7 +84,6 @@ export default function Home() {
           >
             추천받기
           </button>
-          
         </div>
       ) : (
         <div className="w-full max-w-2xl flex flex-col flex-1 bg-white shadow-md rounded-lg p-4">
